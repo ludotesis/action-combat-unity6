@@ -10,6 +10,7 @@ public class PlayerTestState : PlayerBaseState
     public override void Enter()
     {
         Debug.Log("Enter");
+        stateMachine.InputReader.JumpEvent += OnJump;
     }
 
     public override void Tick(float deltaTime)
@@ -26,5 +27,11 @@ public class PlayerTestState : PlayerBaseState
     public override void Exit()
     {
         Debug.Log("Exit");
+        stateMachine.InputReader.JumpEvent -= OnJump;
+    }
+
+    private void OnJump()
+    {
+        Debug.Log("Estas Saltando");
     }
 }
