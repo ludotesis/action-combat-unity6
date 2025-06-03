@@ -1,8 +1,23 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
+    private Controls controls;
+    private void Start()
+    {
+        controls = new Controls();
+        controls.Player.SetCallbacks(this);
+        controls.Player.Enable();
+    }
+    private void OnDestroy()
+    {
+        controls.Player.Disable();
+    }
+    
+    
+
     public void OnMove(InputAction.CallbackContext context)
     {
         throw new System.NotImplementedException();
