@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
+    public event Action JumpEvent;
+    
     private Controls controls;
     private void Start()
     {
@@ -15,14 +17,10 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     {
         controls.Player.Disable();
     }
-    
-    
-
     public void OnMove(InputAction.CallbackContext context)
     {
         throw new System.NotImplementedException();
     }
-
     public void OnLook(InputAction.CallbackContext context)
     {
         throw new System.NotImplementedException();
@@ -45,7 +43,10 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        if (context.performed)
+        {
+            JumpEvent?.Invoke();    
+        }
     }
 
     public void OnPrevious(InputAction.CallbackContext context)
