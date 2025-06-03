@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
     public event Action JumpEvent;
+    public event Action DodgeEvent;
     
     private Controls controls;
     private void Start()
@@ -62,5 +63,13 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public void OnSprint(InputAction.CallbackContext context)
     {
         throw new System.NotImplementedException();
+    }
+
+    public void OnDodge(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            DodgeEvent?.Invoke();    
+        }
     }
 }
