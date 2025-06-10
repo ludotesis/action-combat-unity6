@@ -529,7 +529,7 @@ GameObject:
   - component: {fileID: 601968343}
   - component: {fileID: 601968342}
   - component: {fileID: 601968346}
-  - component: {fileID: 601968347}
+  - component: {fileID: 601968350}
   - component: {fileID: 601968349}
   - component: {fileID: 601968348}
   m_Layer: 0
@@ -660,35 +660,6 @@ MonoBehaviour:
       Wait: 1
       Time: 2
     Restrictions: 0
---- !u!114 &601968347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 601968341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f38bda98361e1de48a4ca2bd86ea3c17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Composition:
-    ScreenPosition: {x: 0, y: 0}
-    DeadZone:
-      Enabled: 0
-      Size: {x: 0.2, y: 0.2}
-    HardLimits:
-      Enabled: 0
-      Size: {x: 0.8, y: 0.8}
-      Offset: {x: 0, y: 0}
-  CenterOnActivate: 1
-  TargetOffset: {x: 0, y: 0, z: 0}
-  Damping: {x: 0.5, y: 0.5}
-  Lookahead:
-    Enabled: 0
-    Time: 0
-    Smoothing: 0
-    IgnoreY: 0
 --- !u!114 &601968348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -786,6 +757,19 @@ MonoBehaviour:
     NearLimit: 5
     FarLimit: 30
     MaxQualityBoost: 0.2
+--- !u!114 &601968350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601968341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8b78ac948f05a46a6d8339a503172b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LookAtOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,6 +1110,10 @@ PrefabInstance:
     - target: {fileID: 1378576400669387894, guid: 01f86735eea6be34ba587646e3ab2864, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394716513772115698, guid: 01f86735eea6be34ba587646e3ab2864, type: 3}
+      propertyPath: <RotationSpeed>k__BackingField
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1672970919512253123, guid: 01f86735eea6be34ba587646e3ab2864, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

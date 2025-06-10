@@ -1,8 +1,10 @@
 using UnityEngine;
 
-public class PlayerTestState : PlayerBaseState
+public class PlayerFreeLookState : PlayerBaseState
 {
-    public PlayerTestState(PlayerStateMachine stateMachine) : base(stateMachine)
+    private readonly int FreeLookSpeedHash = Animator.StringToHash("FreeLookSpeed");
+    private const float AnimatorDampTime = 0.1f;
+    public PlayerFreeLookState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
     }
 
@@ -20,11 +22,19 @@ public class PlayerTestState : PlayerBaseState
 
        if (stateMachine.InputReader.MovementValue == Vector2.zero)
        {
-           stateMachine.Animator.SetFloat("FreeLookSpeed", 0f,0.1f,deltaTime);
+           stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0f,AnimatorDampTime,deltaTime);
            return;
        }
-       stateMachine.Animator.SetFloat("FreeLookSpeed", 1f,0.1f,deltaTime);
-       stateMachine.transform.rotation = Quaternion.LookRotation(movimiento);
+       stateMachine.Animator.SetFloat(FreeLookSpeedHash, 1f,AnimatorDampTime,deltaTime);
+       FaceMovementDirection(movimiento, deltaTime);
+    }
+
+    private void FaceMovementDirection(Vector3 movimiento, float deltaTime)
+    {
+        stateMachine.transform.rotation = Quaternion.Lerp(
+                                            stateMachine.transform.rotation,
+                                            Quaternion.LookRotation(movimiento), 
+                                            deltaTime * stateMachine.RotationSpeed);
     }
 
     public override void Exit()
