@@ -13,12 +13,10 @@ public class PlayerTestState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     { 
-       Vector3 movement = new Vector3();
-       movement.x = stateMachine.InputReader.MovementValue.x;
-       movement.y = 0;
-       movement.z = stateMachine.InputReader.MovementValue.y;
+       Vector3 movimiento = CalcularMovimiento();
+       
        //stateMachine.transform.Translate(movement * deltaTime);
-       stateMachine.CharacterController.Move(movement * stateMachine.FreeLookMovementSpeed * deltaTime);
+       stateMachine.CharacterController.Move(movimiento * stateMachine.FreeLookMovementSpeed * deltaTime);
 
        if (stateMachine.InputReader.MovementValue == Vector2.zero)
        {
@@ -26,7 +24,7 @@ public class PlayerTestState : PlayerBaseState
            return;
        }
        stateMachine.Animator.SetFloat("FreeLookSpeed", 1f,0.1f,deltaTime);
-       stateMachine.transform.rotation = Quaternion.LookRotation(movement);
+       stateMachine.transform.rotation = Quaternion.LookRotation(movimiento);
     }
 
     public override void Exit()
@@ -34,8 +32,15 @@ public class PlayerTestState : PlayerBaseState
         
     }
 
-    private void OnJump()
+    private Vector3 CalcularMovimiento()
     {
-       
+        Vector3 forward = stateMachine.MainCameraTransform.forward;
+        Vector3 right   = stateMachine.MainCameraTransform.right;
+
+        forward.y = 0f;
+        right.y = 0f;
+
+        return forward.normalized * stateMachine.InputReader.MovementValue.y +
+               right.normalized * stateMachine.InputReader.MovementValue.x;
     }
 }

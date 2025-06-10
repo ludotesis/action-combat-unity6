@@ -14,9 +14,13 @@ public class PlayerStateMachine : StateMachine
     [field:SerializeField]
     public float FreeLookMovementSpeed { get; private set; }
     
+    
+    public Transform MainCameraTransform { get; private set; }
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        MainCameraTransform = Camera.main.transform;
         SwitchState(new PlayerTestState(this));       
     }
 }
