@@ -9,6 +9,9 @@ public class PlayerStateMachine : StateMachine
     public CharacterController CharacterController { get; private set; }
     
     [field:SerializeField]
+    public Animator Animator { get; private set; }
+    
+    [field:SerializeField]
     public float FreeLookMovementSpeed { get; private set; }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
