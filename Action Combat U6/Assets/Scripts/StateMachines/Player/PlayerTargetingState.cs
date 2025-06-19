@@ -8,7 +8,7 @@ public class PlayerTargetingState : PlayerBaseState
 
     public override void Enter()
     {
-        throw new System.NotImplementedException();
+        stateMachine.InputReader.CancelEvent += OnCancel;
     }
 
     public override void Tick(float deltaTime)
@@ -18,6 +18,11 @@ public class PlayerTargetingState : PlayerBaseState
 
     public override void Exit()
     {
-        throw new System.NotImplementedException();
+        stateMachine.InputReader.CancelEvent -= OnCancel;
+    }
+
+    private void OnCancel()
+    {
+        stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
     }
 }
