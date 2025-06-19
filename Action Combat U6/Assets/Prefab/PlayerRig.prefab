@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6594084450245354222}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15212339, y: 0, z: 0, w: 0.98836154}
-  m_LocalPosition: {x: 0, y: 1.7028232, z: -3.8148677}
+  m_LocalRotation: {x: 0.15212336, y: 0, z: 0, w: 0.98836154}
+  m_LocalPosition: {x: 0, y: 1.8531761, z: -4.291727}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -99,7 +99,7 @@ MonoBehaviour:
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
   OrbitStyle: 0
-  Radius: 4
+  Radius: 4.5
   Orbits:
     Top:
       Radius: 2
@@ -174,7 +174,7 @@ MonoBehaviour:
   TransparentLayers:
     serializedVersion: 2
     m_Bits: 0
-  MinimumDistanceFromTarget: 0.5
+  MinimumDistanceFromTarget: 0.45
   AvoidObstacles:
     Enabled: 1
     DistanceLimit: 0
@@ -577,6 +577,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1394716513772115698, guid: 01f86735eea6be34ba587646e3ab2864, type: 3}
+      propertyPath: <Targeter>k__BackingField
+      value: 
+      objectReference: {fileID: 3904368300192956757}
     - target: {fileID: 1394716513772115698, guid: 01f86735eea6be34ba587646e3ab2864, type: 3}
       propertyPath: <RotationSpeed>k__BackingField
       value: 2
@@ -1088,3 +1092,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2173416092130234087, guid: 01f86735eea6be34ba587646e3ab2864, type: 3}
   m_PrefabInstance: {fileID: 200685309955136782}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3904368300192956757 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3812262387790109787, guid: 01f86735eea6be34ba587646e3ab2864, type: 3}
+  m_PrefabInstance: {fileID: 200685309955136782}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb91157f7757b240a9f5f33bca4110c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

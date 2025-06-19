@@ -44,7 +44,10 @@ public class PlayerFreeLookState : PlayerBaseState
 
     private void OnTarget()
     {
-        stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
+        if (stateMachine.Targeter.SelectTarget())
+        {
+            stateMachine.SwitchState(new PlayerTargetingState(stateMachine));    
+        }
     }
     
     private Vector3 CalcularMovimiento()
